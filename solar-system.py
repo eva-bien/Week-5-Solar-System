@@ -6,6 +6,10 @@ class Planet:
         self.temperature = temperature
         self.moons = moons
 
+class Moon:
+    def __init__(self, name):
+        self.name = name
+
 class Question:
     def __init__(self, question, planets):
         self.question = question
@@ -15,8 +19,8 @@ class Question:
         if len(moons) == 0:
             return f"{name.title()} has no moons." 
         if len(moons) == 1:
-            return f"{name.title()} has 1 moon. The moon's name is {moons[0]}." 
-        return f"{name.title()} has {len(moons)} moons: {', '.join(moons)}." 
+            return f"{name.title()} has 1 moon. The moon's name is {moons[0].name}." 
+        return f"{name.title()} has {len(moons)} moons: {', '.join([moon.name for moon in moons])}." 
     
     def massAnswer(self, name, mass):
         return f"{name.title()} has a mass of {mass}." 
@@ -45,8 +49,8 @@ class Question:
 def __main__():
     planets = [
         Planet("Mercury", "3.3022×10^23 kg", "46,000,000 km", 427, []), 
-        Planet("Venus", "3.3022×10^23 kg", "7 km", 427, ["Bruja", "Moona"]),
-        Planet("Earth", "34 kg", "46,000,000 km", 56, ["Luna"])
+        Planet("Venus", "3.3022×10^23 kg", "7 km", 427, [Moon("Bruja"), Moon("Moona")]),
+        Planet("Earth", "34 kg", "46,000,000 km", 56, [Moon("Luna")])
         ]
     user_question = Question(input("My name is Cosmos. Ask me about the Solar System. "), planets)
     answer = user_question.answer()
