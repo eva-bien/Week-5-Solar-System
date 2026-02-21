@@ -35,6 +35,7 @@ class Question:
         return f"The distance from {name.title()} and the Sun is between {distance_from_the_sun[0]} - {distance_from_the_sun[1]} AU."
     
     def minMaxFromSunAnswer(self, name, type, distance_from_the_sun):
+        # As I have already got this data, I decided to add this in when asked for it specifically.
         if type == "perihelion":
             return f"The nearest point ({type}) of {name}'s direct orbit around the Sun is {distance_from_the_sun[0]} AU."
         return f"The furthest point ({type}) of {name}'s direct orbit around the Sun is {distance_from_the_sun[1]} AU."
@@ -45,24 +46,41 @@ class Question:
     def isMassQuestion(self, question):
         return "mass" in question.lower() or "big" in question.lower() or "size" in question.lower() or "heavy" in question.lower() or "kg" in question.lower()
 
+    def plutoAnswer(self):
+        return f"Pluto is not a planet. Upon first discovery in 1930, Pluto was considered a planet in the Solar System, but in 2006 was reclassified as a dwarf planet."
 
+    def matchPlanetToQuestion(self, question):
+        for item in self.planets:
+            if item.name.lower() in question.lower():
+                return item
+        return None
 
     def answer(self):
-        for item in self.planets:
-            if item.name.lower() in self.question.lower():
-                converted_mass = item.convertMass(item.mass)
-                if "moon" in self.question.lower():
-                    return self.moonAnswer(item.name, item.moons)
-                if "sun" in self.question.lower():
-                    return self.distanceFromSunAnswer(item.name, item.distance_from_the_sun)
-                if "aphelion" in self.question.lower():
-                    return self.minMaxFromSunAnswer(item.name, "aphelion", item.distance_from_the_sun)
-                if "perihelion" in self.question.lower():
-                    return self.minMaxFromSunAnswer(item.name, "perihelion", item.distance_from_the_sun)
-                if self.isMassQuestion(self.question):
-                    return self.massAnswer(item.name, converted_mass)
-                return f"{item.name} is a planet in the Solar System. \n{self.moonAnswer(item.name, item.moons)} \n{self.massAnswer(item.name, converted_mass)} \n{self.distanceFromSunAnswer(item.name, item.distance_from_the_sun)}"
-        return "no match"
+        if "pluto" in self.question.lower():
+            return self.plutoAnswer()
+
+        found_planet = self.matchPlanetToQuestion(self.question)
+        if found_planet == None:
+            list_of_planets = []
+            for planet in self.planets:
+                list_of_planets.append(planet.name)
+            return f"I couldn't find the answer to your question. I can answer questions about the following planets: {', '.join(list_of_planets[:-1])}, and {list_of_planets[-1]}."
+        
+        converted_mass = found_planet.convertMass(found_planet.mass)
+        if "moon" in self.question.lower():
+            return self.moonAnswer(found_planet.name, found_planet.moons)
+        if "sun" in self.question.lower():
+            return self.distanceFromSunAnswer(found_planet.name, found_planet.distance_from_the_sun)
+        if "aphelion" in self.question.lower():
+            return self.minMaxFromSunAnswer(found_planet.name, "aphelion", found_planet.distance_from_the_sun)
+        if "perihelion" in self.question.lower():
+            return self.minMaxFromSunAnswer(found_planet.name, "perihelion", found_planet.distance_from_the_sun)
+        if self.isMassQuestion(self.question):
+            return self.massAnswer(found_planet.name, converted_mass)
+        return f"{found_planet.name} is a planet in the Solar System. \n{self.moonAnswer(found_planet.name, found_planet.moons)} \n{self.massAnswer(found_planet.name, converted_mass)} \n{self.distanceFromSunAnswer(found_planet.name, found_planet.distance_from_the_sun)}"
+
+        
+
 
 def __main__():
     planets = [
@@ -72,7 +90,6 @@ def __main__():
     user_question = Question(input("My name is Cosmos🌝. Ask me about the Solar System. "), planets)
     answer = user_question.answer()
     print(answer)
-    __main__()
 
 
 __main__()
