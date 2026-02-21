@@ -82,14 +82,14 @@ class Question:
             return self.massAnswer(found_planet.name, converted_mass)
         return f"{found_planet.name} is a planet in the Solar System. \n{self.moonAnswer(found_planet.name, found_planet.moons)} \n{self.massAnswer(found_planet.name, converted_mass)} \n{self.distanceFromSunAnswer(found_planet.name, found_planet.distance_from_the_sun)}"
 
-        
+planets = [
+    Planet("Earth", 5.97217e24, (0.98, 1.02), [Moon("The Moon")]),
+    Planet("Mars", 6.4171e23, (1.38, 1.67), [Moon("Phobos"), Moon("Deimos")])
+        ]  
 
 
 def __main__():
-    planets = [
-        Planet("Earth", 5.97217e24, (0.98, 1.02), [Moon("The Moon")]),
-        Planet("Mars", 6.4171e23, (1.38, 1.67), [Moon("Phobos"), Moon("Deimos")])
-        ]
+
     user_question = Question(input("My name is Cosmos🌝. Ask me about the Solar System. "), planets)
     answer = user_question.answer()
     print(answer)
