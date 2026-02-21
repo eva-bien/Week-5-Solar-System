@@ -48,7 +48,7 @@ class Question:
         return "mass" in question.lower() or "big" in question.lower() or "size" in question.lower() or "heavy" in question.lower() or "kg" in question.lower()
 
     def plutoAnswer(self):
-        return f"Pluto is not a planet. Upon first discovery in 1930, Pluto was considered a planet in the Solar System, but in 2006 was reclassified as a dwarf planet."
+        return "Pluto is not a planet. Upon first discovery in 1930, Pluto was considered a planet in the Solar System, but in 2006 was reclassified as a dwarf planet."
 
     def matchPlanetToQuestion(self, question):
         for item in self.planets:
@@ -58,7 +58,7 @@ class Question:
 
     def answer(self):
         if self.question == "":
-            return f"Please enter a valid question."
+            return "Please enter a valid question."
         if "pluto" in self.question.lower():
             return self.plutoAnswer()
 
@@ -83,10 +83,50 @@ class Question:
         return f"{found_planet.name} is a planet in the Solar System. \n{self.moonAnswer(found_planet.name, found_planet.moons)} \n{self.massAnswer(found_planet.name, converted_mass)} \n{self.distanceFromSunAnswer(found_planet.name, found_planet.distance_from_the_sun)}"
 
 planets = [
-    Planet("Earth", 5.97217e24, (0.98, 1.02), [Moon("The Moon")]),
-    Planet("Mars", 6.4171e23, (1.38, 1.67), [Moon("Phobos"), Moon("Deimos")])
-        ]  
 
+    Planet("Mercury", 3.3011e23, (0.31, 0.59), []),
+
+    Planet("Venus", 4.86731e24, (0.72, 0.73), []),
+
+    Planet("Earth", 5.97217e24, (0.98, 1.02), [
+        Moon("The Moon")
+    ]),
+
+    Planet("Mars", 6.4171e23, (1.38, 1.67), [
+        Moon("Phobos"), Moon("Deimos")
+    ]),
+
+    Planet("Jupiter", 1.898125e27, (4.95, 5.46), [
+        Moon("Metis"), Moon("Adrastea"), Moon("Amalthea"), Moon("Thebe"),
+        Moon("Io"), Moon("Europa"), Moon("Ganymede"), Moon("Callisto")
+    ]),
+
+    Planet("Saturn", 5.68317e26, (9.08, 10.12), [
+        Moon("Mimas"), Moon("Enceladus"), Moon("Tethys"), Moon("Dione"),
+        Moon("Calypso"), Moon("Telesto"), Moon("Helene"), Moon("Polydeuces"),
+        Moon("Rhea"), Moon("Titan"), Moon("Hyperion"), Moon("Iapetus"),
+        Moon("Phoebe")
+    ]),
+
+    Planet("Uranus", 8.68099e25, (18.3, 20.1), [
+        Moon("Cordelia"), Moon("Ophelia"), Moon("Bianca"), Moon("Cressida"),
+        Moon("Desdemona"), Moon("Juliet"), Moon("Portia"), Moon("Rosalind"),
+        Moon("Cupid"), Moon("Belinda"), Moon("Perdita"), Moon("Puck"),
+        Moon("Mab"), Moon("S/2025 U 1"), Moon("Miranda"), Moon("Ariel"),
+        Moon("Umbriel"), Moon("Titania"), Moon("Oberon"), Moon("Francisco"),
+        Moon("Caliban"), Moon("Stephano"), Moon("Trinculo"), Moon("Sycorax"),
+        Moon("Margaret"), Moon("Prospero"), Moon("Setebos"), Moon("Ferdinand"),
+        Moon("S/2023 U 1")
+    ]),
+
+    Planet("Neptune", 1.024092e26, (29.9, 30.5), [
+        Moon("Naiad"), Moon("Thalassa"), Moon("Despina"), Moon("Galatea"),
+        Moon("Larissa"), Moon("Hippocamp"), Moon("Proteus"), Moon("Triton"),
+        Moon("Nereid"), Moon("Halimede"), Moon("Sao"), Moon("Laomedeia"),
+        Moon("Psamathe"), Moon("Neso"), Moon("S/2002 N 5"), Moon("S/2021 N 1")
+    ])
+
+]
 
 def __main__():
 
