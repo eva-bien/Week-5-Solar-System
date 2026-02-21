@@ -1,9 +1,19 @@
 class Planet:
     def __init__(self, name, mass, distance_from_the_sun, moons=[]):
         self.name = name
-        self.mass = mass
+        # As mass is such a large number, I opted to use scientific notation as a data type. 
+        # Earth mass on Wikipedia is (5.97217±0.00028)×10^24 kg which is represented by scientific notation as 5.97217e24.
+        # https://richardkilleen.co.uk/blog/python/python-scientific-notation/#:~:text=Right%20so%20python%20scientific%20notation,%2C%20you%20write%201e%2D06.
+        self.mass = mass 
         self.distance_from_the_sun = distance_from_the_sun
         self.moons = moons
+
+    def convertMass(self, mass):
+        # Scientific notation is not human-readable. Below is a method of converting the scientific number into a well displayed number.
+        # I used this discussion as inspiration: https://stackoverflow.com/questions/56029841/how-to-print-coefficient-and-exponent-separate-from-each-other-in-python.
+        base, power = f"{mass:.4e}".split("e")
+        power = int(power)
+        return f"{base} x 10^{power} kg"
 
 class Moon:
     def __init__(self, name):
@@ -21,6 +31,9 @@ class Question:
             return f"{name.title()} has 1 moon. The moon's name is {moons[0].name}." 
         return f"{name.title()} has {len(moons)} moons: {', '.join([moon.name for moon in moons])}." 
     
+    def distanceFromSunAnswer(self, name, distance_from_the_sun):
+        return f"The distance from {name.title()} and the Sun is between {distance_from_the_sun[0]} - {distance_from_the_sun[1]} AU."
+
     def massAnswer(self, name, mass):
         return f"{name.title()} has a mass of {mass}." 
     
@@ -32,8 +45,10 @@ class Question:
             if item.name.lower() in self.question.lower():
                 if "moon" in self.question.lower():
                     return self.moonAnswer(item.name, item.moons)
+                if "sun" in self.question.lower():
+                    return self.distanceFromSunAnswer(item.name, item.distance_from_the_sun)
                 if self.isMassQuestion(self.question):
-                    return self.massAnswer(item.name, item.mass)
+                    return self.massAnswer(item.name, item.convertMass(item.mass))
                 return f"{self.moonAnswer(item.name, item.moons)} \n{self.massAnswer(item.name, item.mass)}"
         return "no match"
 
