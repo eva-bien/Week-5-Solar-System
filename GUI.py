@@ -15,8 +15,10 @@ def clearQuestion():
 root = tk.Tk()
 root.title("Cosmos")
 root.geometry("900x550")  
+# Opens in full screen
+root.attributes("-fullscreen", True)
 
-# Load background safely
+# Background file directory
 BASE_DIR = os.path.dirname(__file__)
 image_path = os.path.join(BASE_DIR, "images", "background.png")
 background = tk.PhotoImage(file=image_path)
@@ -73,7 +75,7 @@ question_area = tk.Text(content, height=6, bd=2, relief="sunken", highlightthick
 question_area.pack(padx=20, pady=10)
 
 # Ask button
-ask_button = tk.Button(content, text="Ask", width=25, command=askQuestion, foreground = "purple", font=("Segoe UI", 16, "bold"))
+ask_button = tk.Button(content, text="Ask", width=25, command=askQuestion, foreground = "purple", font=("Segoe UI", 16, "bold"), cursor="star")
 ask_button.pack(pady=(5, 20))
 
 # Clear button
