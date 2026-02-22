@@ -12,7 +12,7 @@ Run the planet_test.py by inputting this into the command line: `python3 -m pyte
 
 ## GitHub
 
-This is hosted on [This Link](https://github.com/eva-bien/Solar-System-Program)
+This is hosted on: [Link](https://github.com/eva-bien/Solar-System-Program).
 
 ## AI usage/Online Materials
 
@@ -33,4 +33,4 @@ My AI usage is at AITS 1 (No AI used) of the Artificial Intelligence Transparenc
 
 ## Images
 
-I have used this background image: (https://wall.alphacoders.com/big.php?i=1274991)
+I have used this background image: [Link](https://wall.alphacoders.com/big.php?i=1274991).
