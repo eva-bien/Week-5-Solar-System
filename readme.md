@@ -18,14 +18,14 @@ This is hosted on [This Link](https://github.com/eva-bien/Solar-System-Program)
 
 ### Links to the articles I have taken as inspiration:
 
-- (https://richardkilleen.co.uk/blog/python/python-scientific-notation/#:~:text=Right%20so%20python%20scientific%20notation,%2C%20you%20write%201e%2D06)
-- (https://stackoverflow.com/questions/56029841/how-to-print-coefficient-and-exponent-separate-from-each-other-in-python)
-- (https://docs.python.org/3/library/unittest.html)
-- (https://www.geeksforgeeks.org/python/how-to-bind-the-enter-key-to-a-tkinter-window/)
-- (https://www.geeksforgeeks.org/python/changing-the-mouse-cursor-tkinter/)
-- (https://www.geeksforgeeks.org/python/python-add-style-to-tkinter-button/)
-- (https://www.geeksforgeeks.org/python/how-to-change-the-tkinter-label-text/)
-- (https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/)
+- https://richardkilleen.co.uk/blog/python/python-scientific-notation/#:~:text=Right%20so%20python%20scientific%20notation,%2C%20you%20write%201e%2D06
+- https://stackoverflow.com/questions/56029841/how-to-print-coefficient-and-exponent-separate-from-each-other-in-python
+- https://docs.python.org/3/library/unittest.html
+- https://www.geeksforgeeks.org/python/how-to-bind-the-enter-key-to-a-tkinter-window/
+- https://www.geeksforgeeks.org/python/changing-the-mouse-cursor-tkinter/
+- https://www.geeksforgeeks.org/python/python-add-style-to-tkinter-button/
+- https://www.geeksforgeeks.org/python/how-to-change-the-tkinter-label-text/
+- https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
 
 ### AITS descriptor:
 
