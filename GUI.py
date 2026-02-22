@@ -2,7 +2,14 @@ import tkinter as tk
 import os
 from solar_system import Question, planets
 
-def askQuestion():
+# To set up this GUI, I have used the following articles:
+# https://www.geeksforgeeks.org/python/how-to-bind-the-enter-key-to-a-tkinter-window/
+# https://www.geeksforgeeks.org/python/changing-the-mouse-cursor-tkinter/
+# https://www.geeksforgeeks.org/python/python-add-style-to-tkinter-button/
+# https://www.geeksforgeeks.org/python/how-to-change-the-tkinter-label-text/
+# https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
+
+def ask_question():
     user_question = question_area.get("1.0", "end-1c")
     question = Question(user_question, planets)
     answer.config(text = question.answer())
@@ -73,7 +80,7 @@ question_area = tk.Text(content, height=6, bd=2, relief="sunken", highlightthick
 question_area.pack(padx=20, pady=10)
 
 # Ask button
-ask_button = tk.Button(content, text="Ask", width=25, command=askQuestion, foreground = "purple", font=("Segoe UI", 16, "bold"), cursor="star")
+ask_button = tk.Button(content, text="Ask", width=25, command=ask_question, foreground = "purple", font=("Segoe UI", 16, "bold"), cursor="star")
 ask_button.pack(pady=(5, 20))
 
 # Clear button

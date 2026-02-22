@@ -9,7 +9,7 @@ class Planet:
         # As per the brief I am not including numbers of moons larger than 30.
         self.moons = moons
 
-    def convertMass(self, mass):
+    def convert_mass(self, mass):
         # Scientific notation is not human-readable. Below is a method of converting the scientific number into a well displayed number.  Most of the planets in the data set rounded the mass to 5 decimal places, so I have kept it consistent. 
         # I used this discussion as inspiration: https://stackoverflow.com/questions/56029841/how-to-print-coefficient-and-exponent-separate-from-each-other-in-python.
         base, power = f"{mass:.5e}".split("e")
@@ -25,32 +25,32 @@ class Question:
         self.question = question
         self.planets = planets
 
-    def moonAnswer(self, name, moons):
+    def moon_answer(self, name, moons):
         if len(moons) == 0:
             return f"{name.title()} has no moons." 
         if len(moons) == 1:
             return f"{name.title()} has 1 moon. The moon's name is {moons[0].name}." 
         return f"{name.title()} has {len(moons)} moons: {', '.join([moon.name for moon in moons])}." 
     
-    def distanceFromSunAnswer(self, name, distance_from_the_sun):
+    def distance_from_sun_answer(self, name, distance_from_the_sun):
         return f"The distance from {name.title()} and the Sun is between {distance_from_the_sun[0]} - {distance_from_the_sun[1]} AU."
     
-    def minMaxFromSunAnswer(self, name, type, distance_from_the_sun):
+    def min_max_from_sun_answer(self, name, type, distance_from_the_sun):
         # As I have already got this data, I decided to add this in when asked for it specifically.
         if type == "perihelion":
             return f"The nearest point ({type}) of {name}'s direct orbit around the Sun is {distance_from_the_sun[0]} AU."
         return f"The furthest point ({type}) of {name}'s direct orbit around the Sun is {distance_from_the_sun[1]} AU."
 
-    def massAnswer(self, name, mass):
+    def mass_answer(self, name, mass):
         return f"{name.title()} has a mass of {mass}." 
     
-    def isMassQuestion(self, question):
+    def is_mass_question(self, question):
         return "mass" in question.lower() or "big" in question.lower() or "size" in question.lower() or "heavy" in question.lower() or "kg" in question.lower() or "weight" in question.lower()
 
-    def plutoAnswer(self):
+    def pluto_answer(self):
         return "Pluto is not a planet. Upon first discovery in 1930, Pluto was considered a planet in the Solar System, but in 2006 was reclassified as a dwarf planet."
 
-    def matchPlanetToQuestion(self, question):
+    def match_planet_to_question(self, question):
         matched_planets = []
         for item in self.planets:
             if item.name.lower() in question.lower():
@@ -61,9 +61,9 @@ class Question:
         if self.question == "":
             return "Please enter a valid question."
         if "pluto" in self.question.lower():
-            return self.plutoAnswer()
+            return self.pluto_answer()
 
-        matched_planets = self.matchPlanetToQuestion(self.question)
+        matched_planets = self.match_planet_to_question(self.question)
         if len(matched_planets) == 0:
             list_of_planets = []
             for planet in self.planets:
@@ -74,18 +74,18 @@ class Question:
         
         matched_planet = matched_planets[0]
         
-        converted_mass = matched_planet.convertMass(matched_planet.mass)
+        converted_mass = matched_planet.convert_mass(matched_planet.mass)
         if "moon" in self.question.lower():
-            return self.moonAnswer(matched_planet.name, matched_planet.moons)
+            return self.moon_answer(matched_planet.name, matched_planet.moons)
         if "aphelion" in self.question.lower():
-            return self.minMaxFromSunAnswer(matched_planet.name, "aphelion", matched_planet.distance_from_the_sun)
+            return self.min_max_from_sun_answer(matched_planet.name, "aphelion", matched_planet.distance_from_the_sun)
         if "perihelion" in self.question.lower():
-            return self.minMaxFromSunAnswer(matched_planet.name, "perihelion", matched_planet.distance_from_the_sun)
+            return self.min_max_from_sun_answer(matched_planet.name, "perihelion", matched_planet.distance_from_the_sun)
         if "sun" in self.question.lower():
-            return self.distanceFromSunAnswer(matched_planet.name, matched_planet.distance_from_the_sun)
-        if self.isMassQuestion(self.question):
-            return self.massAnswer(matched_planet.name, converted_mass)
-        return f"{matched_planet.name} is a planet in the Solar System. \n{self.moonAnswer(matched_planet.name, matched_planet.moons)} \n{self.massAnswer(matched_planet.name, converted_mass)} \n{self.distanceFromSunAnswer(matched_planet.name, matched_planet.distance_from_the_sun)}"
+            return self.distance_from_sun_answer(matched_planet.name, matched_planet.distance_from_the_sun)
+        if self.is_mass_question(self.question):
+            return self.mass_answer(matched_planet.name, converted_mass)
+        return f"{matched_planet.name} is a planet in the Solar System. \n{self.moon_answer(matched_planet.name, matched_planet.moons)} \n{self.mass_answer(matched_planet.name, converted_mass)} \n{self.distance_from_sun_answer(matched_planet.name, matched_planet.distance_from_the_sun)}"
 
 planets = [
 

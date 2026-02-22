@@ -27,9 +27,9 @@ This is hosted on [This Link](https://github.com/eva-bien/Solar-System-Program)
 - https://www.geeksforgeeks.org/python/how-to-change-the-tkinter-label-text/
 - https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
 
-### AITS descriptor:
+### AITS descriptor
 
-1 (No AI was used)
+My AI usage is at AITS 1 (No AI used) of the Artificial Intelligence Transparency Scale (AITS). I did not use AI to brainstorm initial ideas, outline the structure of my project, write any part of the content or to edit the final version.
 
 ## Images
 
