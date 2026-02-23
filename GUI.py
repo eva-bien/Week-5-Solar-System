@@ -8,12 +8,15 @@ from solar_system import Question, planets
 # https://www.geeksforgeeks.org/python/python-add-style-to-tkinter-button/
 # https://www.geeksforgeeks.org/python/how-to-change-the-tkinter-label-text/
 # https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
+# https://www.geeksforgeeks.org/python/how-to-create-full-screen-window-in-tkinter/ 
 
+# Method for adding the ability to ask a question and getting information from the main file
 def ask_question():
     user_question = question_area.get("1.0", "end-1c")
     question = Question(user_question, planets)
     answer.config(text = question.answer())
     
+# Method for clearing the text area
 def clearQuestion():
     question_area.delete("1.0", "end-1c")
 
@@ -79,7 +82,7 @@ question_label.pack(anchor="w", padx=20, pady=10)
 question_area = tk.Text(content, height=6, bd=2, relief="sunken", highlightthickness=1, highlightbackground="#999")
 question_area.pack(padx=20, pady=10)
 
-# Ask button
+# Ask button, the cursor changes to star when hovered 
 ask_button = tk.Button(content, text="Ask", width=25, command=ask_question, foreground = "purple", font=("Segoe UI", 16, "bold"), cursor="star")
 ask_button.pack(pady=(5, 20))
 
@@ -87,7 +90,7 @@ ask_button.pack(pady=(5, 20))
 clear_button = tk.Button(content, text="Clear", width=25, command=clearQuestion, font=("Segoe UI", 16, "bold"))
 clear_button.pack(pady=(5, 20))
 
-# Exit button
+# Exit button - closes the program
 exit_button = tk.Button(content, text="Exit", width=25, command=root.destroy, foreground = "red", font=("Segoe UI", 16, "bold"))
 exit_button.pack(pady=(5, 20))
 

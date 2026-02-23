@@ -14,6 +14,10 @@ Run the planet_test.py by inputting this into the command line: `python3 -m pyte
 
 This is hosted on: [Link](https://github.com/eva-bien/Solar-System-Program).
 
+## Proper Usage
+
+Please open the GUI in light mode, as dark mode may change the colours of the text and text area.
+
 ## AI usage/Online Materials
 
 ### Links to the articles I have taken as inspiration:
@@ -26,6 +30,7 @@ This is hosted on: [Link](https://github.com/eva-bien/Solar-System-Program).
 - https://www.geeksforgeeks.org/python/python-add-style-to-tkinter-button/
 - https://www.geeksforgeeks.org/python/how-to-change-the-tkinter-label-text/
 - https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
+- https://www.geeksforgeeks.org/python/how-to-create-full-screen-window-in-tkinter/
 
 ### AITS descriptor
 
