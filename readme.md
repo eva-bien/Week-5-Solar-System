@@ -2,7 +2,7 @@
 
 ## Running Project/Tests
 
-The main entry of the project is GUI.py. You can run this file to spin up the GUI app.
+The main entry point of the project is GUI.py. You can run this file to spin up the GUI app.
 
 ### Tests
 

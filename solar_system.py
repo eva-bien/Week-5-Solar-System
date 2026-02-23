@@ -1,7 +1,9 @@
+# GUI.py is the main entry point of this program, it imports parts from this file
+
 class Planet:
     def __init__(self, name, mass, distance_from_the_sun, moons=[]):
         self.name = name
-        # As mass is such a large number, I opted to use scientific notation as a data type. 
+        # As mass is such a large number, I opted to use an int with scientific notation as a data type. 
         # Earth mass on Wikipedia is 5.97217×10^24 kg which is represented by scientific notation as 5.97217e24.
         # https://richardkilleen.co.uk/blog/python/python-scientific-notation/#:~:text=Right%20so%20python%20scientific%20notation,%2C%20you%20write%201e%2D06.
         # Using scientific notation is more versatile than holding the information about mass as a string.
@@ -144,6 +146,3 @@ planets = [
     ])
 
 ]
-
-# Calling the program is solved through the use of the GUI
-
