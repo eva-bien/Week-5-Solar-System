@@ -1,5 +1,7 @@
 # Fundamentals of Computing Assignment by Ewa Bienasz
 
+<img width="3012" height="1948" alt="image" src="https://github.com/user-attachments/assets/b3da7208-72d5-4f11-995f-0b5b82a31338" />
+
 ## Running Project/Tests
 
 The main entry point of the project is GUI.py. You can run this file to spin up the GUI app.
